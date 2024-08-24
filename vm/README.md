@@ -41,15 +41,11 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-
-
 理解您的资源限制，我们可以修改方案，在单个虚拟机上搭建整个Redis集群。这种方法虽然不能提供真正的高可用性，但对于学习和测试目的来说是足够的。让我们修改计划，在一个RedHat 7虚拟机上搭建Redis集群。
 
 步骤1: 修改Vagrantfile
 
 我们需要更新Vagrantfile以只创建一个虚拟机。
-
-
 
 ```ruby
 Vagrant.configure("2") do |config|
