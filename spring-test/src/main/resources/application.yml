@@ -1,0 +1,22 @@
+# application.yml
+spring:
+  data:
+    redis:
+      sentinel:
+        master: mymaster
+        nodes: 192.168.56.10:26379,192.168.56.10:26380,192.168.56.10:26381
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 3
+          max-wait: -1ms
+          time-between-eviction-runs: 3000
+        shutdown-timeout: 100ms
+      timeout: 5000ms
+      # password: your_redis_password  # 如果设置了密码
+      database: 0  # 默认使用的数据库索引
+      client-name: my-app  # 客户端名称，用于识别
+      ssl: 
+        enabled: false  # 是否启用SSL
+
