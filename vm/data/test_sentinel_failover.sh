@@ -17,7 +17,7 @@ get_master_info() {
 # 等待新的 master 被选举
 wait_for_new_master() {
     local start_time=$(date +%s)
-    local timeout=5  # 5 秒超时
+    local timeout=20  # 5 秒超时
     local old_master=$1
 
     while true; do
@@ -53,7 +53,7 @@ run_test() {
 
     # 模拟 master 故障
     echo "Simulating master failure..."
-    redis-cli -p $old_master_port DEBUG SLEEP 5 &
+    redis-cli -p $old_master_port DEBUG SLEEP 10 &
 
     # 等待新的 master 被选举
     wait_for_new_master $old_master

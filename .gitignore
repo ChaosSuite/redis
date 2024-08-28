@@ -19,3 +19,4 @@ classes/
 Thumbs.db
 *.log
 build/
+.vscode
