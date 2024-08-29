@@ -62,7 +62,7 @@ class SpringTestApplicationTests {
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
         con.setConnectTimeout(3000);
-        con.setReadTimeout(10000);
+        con.setReadTimeout(3000);
 
         int status = con.getResponseCode();
         if (status == 200) {

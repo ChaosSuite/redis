@@ -103,7 +103,7 @@ sudo systemctl disable firewalld
 ```plaintext
 # Master配置 (/etc/redis/redis-6379.conf)
 port 6379
-bind 0.0.0.0
+bind 192.168.56.10
 protected-mode no
 
 daemonize yes
@@ -113,25 +113,25 @@ dir /var/lib/redis/6379
 
 # Slave 1配置 (/etc/redis/redis-6380.conf)
 port 6380
-bind 0.0.0.0
+bind 192.168.56.10
 protected-mode no
 
 daemonize yes
 pidfile /var/run/redis_6380.pid
 logfile /var/log/redis_6380.log
 dir /var/lib/redis/6380
-slaveof 127.0.0.1 6379
+slaveof 192.168.56.10 6379
 
 # Slave 2配置 (/etc/redis/redis-6381.conf)
 port 6381
-bind 0.0.0.0
+bind 192.168.56.10
 protected-mode no
 
 daemonize yes
 pidfile /var/run/redis_6381.pid
 logfile /var/log/redis_6381.log
 dir /var/lib/redis/6381
-slaveof 127.0.0.1 6379
+slaveof 192.168.56.10 6379
 
 ```
 
@@ -163,6 +163,9 @@ sentinel parallel-syncs mymaster 1
 
 # Sentinel 2配置 (/etc/redis/sentinel-26380.conf)
 port 26380
+bind 0.0.0.0
+protected-mode no
+
 daemonize yes
 pidfile /var/run/redis-sentinel-26380.pid
 logfile /var/log/redis-sentinel-26380.log
@@ -173,6 +176,9 @@ sentinel parallel-syncs mymaster 1
 
 # Sentinel 3配置 (/etc/redis/sentinel-26381.conf)
 port 26381
+bind 0.0.0.0
+protected-mode no
+
 daemonize yes
 pidfile /var/run/redis-sentinel-26381.pid
 logfile /var/log/redis-sentinel-26381.log
